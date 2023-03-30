@@ -10,7 +10,7 @@ Consegna su github con il link del vostro repository.*/
 #include <time.h>
 
 int main(void) {
-  int n, m[n][n], i, j;
+  int n, num, m[n][n], i, j;
 
   FILE *fp;
 
@@ -22,10 +22,14 @@ int main(void) {
 
     switch (n) {
     case 1:
+
       srand(time(NULL));
 
-      for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
+      printf("\nInserire la dimensione della radice quadrata:\t");
+      scanf("%d", &num);
+
+      for (i = 0; i < num; i++) {
+        for (j = 0; j < num; j++) {
           m[i][j] = (rand() % 100) + 1;
         }
       }
@@ -36,8 +40,8 @@ int main(void) {
 
       fp = fopen("matrice.csv", "w");
 
-      for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
+      for (i = 0; i < num; i++) {
+        for (j = 0; j < num; j++) {
           fprintf(fp, "\n%d", m[i][j]);
         }
       }
@@ -46,10 +50,10 @@ int main(void) {
       break;
 
     case 3:
-      for (i = 0; i < n; i++) {
+      for (i = 0; i < num; i++) {
         printf("\n\n");
 
-        for (j = 0; j < n; j++) {
+        for (j = 0; j < num; j++) {
           printf("\t%d", m[i][j]);
         }
       }
